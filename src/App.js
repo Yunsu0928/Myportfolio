@@ -109,6 +109,8 @@ function App() {
 			</StyledMain1>
 			<div>adf</div>
 			<div>adf</div>
+			<div>adf</div>
+			<div>adf</div>
 		</Container>
 	);
 }
