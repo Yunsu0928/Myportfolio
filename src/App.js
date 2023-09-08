@@ -1,26 +1,31 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import mainimg from "./assets/main.png";
+import me4 from "./assets/me4.png";
 import me3 from "./assets/me3.png";
+
+import AOS from "aos";
 
 const Container = styled.div`
 	font-family: "GmarketSansMedium";
 `;
 
 const Header = styled.header`
-	/* background-color: black; */
+	/* background-color: none; */
+	background-color: ${({ isScrolled }) => (isScrolled ? "white" : "none")};
+	color: ${({ isScrolled }) => (isScrolled ? "black" : "white")};
 	display: flex;
 	justify-content: space-between;
 	position: fixed;
 	width: 100vw;
 	opacity: 0.5s;
+	z-index: 1;
 `;
 
 const StyledHdTitle = styled.div``;
 
 const StyledTitle = styled.div`
-	color: white;
 	font-size: 40px;
 	padding: 20px 40px;
 	font-weight: bold;
@@ -36,7 +41,6 @@ const StyledMenuUl = styled.ul`
 `;
 
 const StyledMenuLi = styled.li`
-	color: white;
 	float: left;
 	margin-right: 40px;
 	font-size: 30px;
@@ -45,7 +49,6 @@ const StyledMenuLi = styled.li`
 const StyledMain1 = styled.div`
 	width: 100vw;
 	height: 100vh;
-	/* background-image: url(${mainimg}); */
 	background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
 		url(${mainimg});
 	display: flex;
@@ -85,12 +88,64 @@ const StyledIntro = styled.div`
 	color: white;
 `;
 
+const StyledMain2 = styled.div`
+	width: 100vw;
+	height: 100vh;
+	background-color: #efefef;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+`;
+
+const StyledImgMe2 = styled.div`
+	background-image: url(${me4});
+	background-repeat: no-repeat;
+	background-size: 230px 220px;
+	background-position: center center;
+	width: 250px;
+	height: 250px;
+	background-color: gray;
+	border-radius: 50%;
+	margin-left: 220px;
+	margin-top: 20px;
+`;
+
+const StyledMsgBox = styled.div`
+	display: flex;
+	flex-direction: column;
+	margin-top: 50px;
+`;
+
+const StyledMsg = styled.div`
+	font-size: 55px;
+	margin-bottom: 30px;
+	font-weight: bold;
+`;
+
 function App() {
-	const [isVisible, setIsVisible] = useState(false);
+	const [isScrolled, setIsScrolled] = useState(false);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const scrollY = window.scrollY;
+			if (scrollY > 930) {
+				setIsScrolled(true);
+			} else {
+				setIsScrolled(false);
+			}
+		};
+		window.addEventListener("scroll", handleScroll);
+
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+
+	AOS.init();
 
 	return (
 		<Container>
-			<Header>
+			<Header isScrolled={isScrolled}>
 				<StyledHdTitle>
 					<StyledTitle>Portfolio</StyledTitle>
 				</StyledHdTitle>
@@ -105,15 +160,60 @@ function App() {
 			</Header>
 			<StyledMain1>
 				<StyledImgBox>
-					<StyledImgMe></StyledImgMe>
+					<StyledImgMe
+						data-aos="flip-left"
+						data-aos-delay="100"
+						data-aos-duration="3000"
+					></StyledImgMe>
 				</StyledImgBox>
-				<StyledName>HONG YUN SU</StyledName>
-				<StyledIntro>I’m front-end developer</StyledIntro>
+				<StyledName
+					data-aos="fade-up"
+					data-aos-delay="300"
+					data-aos-duration="2000"
+				>
+					HONG YUN SU
+				</StyledName>
+				<StyledIntro
+					data-aos="fade-up"
+					data-aos-delay="500"
+					data-aos-duration="2000"
+				>
+					I’m front-end developer
+				</StyledIntro>
 			</StyledMain1>
+			{/* <div data-aos="fade-up">123123123123</div>
+			<div data-aos="fade-right">123123123</div>
 			<div>adf</div>
-			<div>adf</div>
-			<div>adf</div>
-			<div>adf</div>
+			<StyledTest>adf</StyledTest> */}
+
+			<StyledMain2>
+				<StyledImgMe2></StyledImgMe2>
+				<StyledMsgBox>
+					<StyledMsg
+						data-aos="fade-up"
+						data-aos-delay="200"
+						data-aos-duration="2000"
+					>
+						원활한 커뮤니케이션과
+					</StyledMsg>
+					<StyledMsg
+						data-aos="fade-up"
+						data-aos-delay="400"
+						data-aos-duration="2000"
+					>
+						협업능력을 바탕으로
+					</StyledMsg>
+					<StyledMsg
+						data-aos="fade-up"
+						data-aos-delay="600"
+						data-aos-duration="2000"
+					>
+						더 나은 솔루션을 찾아내는 것을 추구합니다
+					</StyledMsg>
+				</StyledMsgBox>
+			</StyledMain2>
+			<div>main3 Skills</div>
+			<div>main4 Projects</div>
 		</Container>
 	);
 }
