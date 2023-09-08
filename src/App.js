@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 import mainimg from "./assets/main.png";
 import me3 from "./assets/me3.png";
@@ -85,6 +86,8 @@ const StyledIntro = styled.div`
 `;
 
 function App() {
+	const [isVisible, setIsVisible] = useState(false);
+
 	return (
 		<Container>
 			<Header>
