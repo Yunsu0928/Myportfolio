@@ -29,6 +29,9 @@ const StyledTitle = styled.div`
 	font-size: 40px;
 	padding: 20px 40px;
 	font-weight: bold;
+	@media screen and (max-width: 1024px) {
+		font-size: 30px;
+	}
 `;
 
 const StyledHdMenu = styled.div`
@@ -44,6 +47,10 @@ const StyledMenuLi = styled.li`
 	float: left;
 	margin-right: 40px;
 	font-size: 30px;
+	@media screen and (max-width: 1024px) {
+		font-size: 20px;
+		margin-right: 20px;
+	}
 `;
 
 const StyledMain1 = styled.div`
@@ -55,6 +62,9 @@ const StyledMain1 = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	@media screen and (max-width: 1024px) {
+		background-size: cover;
+	}
 `;
 
 const StyledImgBox = styled.div`
@@ -73,6 +83,13 @@ const StyledImgMe = styled.div`
 	height: 400px;
 	background-color: yellow;
 	border-radius: 50%;
+	@media screen and (max-width: 1024px) {
+		margin-top: 50px;
+		margin-bottom: 20px;
+		width: 300px;
+		height: 300px;
+		background-size: cover;
+	}
 `;
 
 const StyledName = styled.div`
@@ -80,12 +97,20 @@ const StyledName = styled.div`
 	font-weight: bold;
 	color: white;
 	margin-top: 20px;
+	@media screen and (max-width: 1024px) {
+		font-size: 40px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
 `;
 
 const StyledIntro = styled.div`
 	font-size: 40px;
 	font-weight: bold;
 	color: white;
+	@media screen and (max-width: 1024px) {
+		font-size: 30px;
+	}
 `;
 
 const StyledMain2 = styled.div`
@@ -106,20 +131,45 @@ const StyledImgMe2 = styled.div`
 	height: 250px;
 	background-color: gray;
 	border-radius: 50%;
-	margin-left: 220px;
+	margin-left: 100px;
 	margin-top: 20px;
+	@media screen and (max-width: 1050px) {
+		background-size: 150px 150px;
+		width: 200px;
+		height: 200px;
+		border-radius: 50%;
+		margin-left: 50px;
+		margin-top: 0px;
+	}
 `;
 
 const StyledMsgBox = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin-top: 50px;
+	margin-right: 30px;
+	@media screen and (max-width: 1024px) {
+		margin-top: 20px;
+		margin-left: 20px;
+	}
 `;
 
 const StyledMsg = styled.div`
 	font-size: 55px;
 	margin-bottom: 30px;
 	font-weight: bold;
+	@media screen and (max-width: 1500px) {
+		font-size: 45px;
+	}
+	@media (max-width: 1260px) {
+		font-size: 35px;
+	}
+	@media (max-width: 1024px) {
+		font-size: 30px;
+	}
+	@media (max-width: 860px) {
+		font-size: 20px;
+	}
 `;
 
 function App() {
