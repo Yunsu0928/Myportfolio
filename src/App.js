@@ -32,42 +32,51 @@ const Header = styled.header`
 	color: ${({ isScrolled }) => (isScrolled ? "black" : "white")};
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	position: fixed;
 	width: 100vw;
+	height: 80px;
 	opacity: 0.5s;
 	z-index: 1;
 `;
 
 const StyledHdTitle = styled.div``;
 
-const StyledTitle = styled.div`
-	font-size: 40px;
-	padding: 20px 40px;
+const StyledTitle = styled.h1`
+	margin-left: 5vw;
 	font-weight: bold;
-	@media screen and (max-width: 1024px) {
-		font-size: 30px;
+	a {
+		text-decoration: none;
+		color: ${({ isScrolled }) => (isScrolled ? "black" : "white")};
+		&:visited {
+			color: inherit;
+		}
 	}
-	@media (max-width: 680px) {
+	@media screen and (max-width: 1024px) {
 		font-size: 25px;
-		padding: 10px 20px;
+	}
+	@media (max-width: 768px) {
+		font-size: 20px;
 	}
 `;
 
-const StyledHdMenu = styled.div`
+const StyledHdMenu = styled.nav`
 	display: flex;
 	align-items: center;
 `;
 
 const StyledMenuUl = styled.ul`
 	list-style: none;
+	margin-right: 5vw;
 `;
 
 const StyledMenuLi = styled.li`
 	float: left;
-	margin-right: 40px;
-	font-size: 30px;
+	font-size: 20px;
+	margin-right: 3vw;
 	a {
 		text-decoration: none;
+		color: ${({ isScrolled }) => (isScrolled ? "black" : "white")};
 		&:visited {
 			color: inherit;
 		}
@@ -76,10 +85,10 @@ const StyledMenuLi = styled.li`
 		font-size: 20px;
 		margin-right: 20px;
 	}
-	@media (max-width: 680px) {
+	@media (max-width: 768px) {
 		font-size: 15px;
 	}
-	@media (max-width: 575px) {
+	@media (max-width: 480px) {
 		font-size: 10px;
 	}
 `;
@@ -109,36 +118,32 @@ const StyledImgMe = styled.div`
 	background-image: url(${me3});
 	background-repeat: no-repeat;
 	background-position: center center;
-	margin-top: 100px;
-	width: 400px;
-	height: 400px;
+	background-size: 17vw 20vw;
+	margin-top: 5vw;
+	width: 25vw;
+	height: 25vw;
 	background-color: yellow;
 	border-radius: 50%;
 	@media screen and (max-width: 1024px) {
-		margin-top: 50px;
-		margin-bottom: 20px;
-		width: 300px;
-		height: 300px;
-		background-size: 200px 220px;
-	}
-	@media (max-width: 390px) {
-		margin-top: 30px;
-		margin-bottom: 20px;
-		width: 200px;
-		height: 200px;
-		background-size: 150px 170px;
+		margin-top: 10vw;
+		margin-bottom: 5vw;
+		width: 30vw;
+		height: 30vw;
+		background-size: 22vw 25vw;
 	}
 `;
 
-const StyledName = styled.div`
-	font-size: 60px;
+const StyledName = styled.p`
+	margin-top: 1vw;
+	margin-bottom: 0;
+	font-size: 4vw;
 	font-weight: bold;
-	color: white;
-	margin-top: 20px;
+	color: #fff;
+	/* margin-top: 2vw; 
 	@media screen and (max-width: 1024px) {
 		font-size: 40px;
 		margin-top: 10px;
-		margin-bottom: 10px;
+		margin-bottom: 10px; 
 	}
 	@media (max-width: 390px) {
 		font-size: 30px;
@@ -149,10 +154,12 @@ const StyledName = styled.div`
 		font-size: 25px;
 		margin-top: 10px;
 		margin-bottom: 10px;
-	}
+	}  */
 `;
 
-const StyledIntro = styled.div`
+const StyledIntro = styled.p`
+	margin-top: 0.05vw;
+	margin-bottom: 0;
 	font-size: 40px;
 	font-weight: bold;
 	color: white;
@@ -163,7 +170,7 @@ const StyledIntro = styled.div`
 		font-size: 20px;
 	}
 	@media (max-width: 255px) {
-		font-size: 15px;
+		font-size: 10px;
 	}
 `;
 
@@ -174,20 +181,27 @@ const StyledMain2 = styled.div`
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	@media screen and (max-width: 1024px) {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
 `;
 
 const StyledImgMe2 = styled.div`
 	background-image: url(${me4});
 	background-repeat: no-repeat;
-	background-size: 230px 220px;
-	background-position: center center;
-	width: 250px;
-	height: 250px;
+	background-size: 14vw 14vw;
+	background-position: 1vw;
+	width: 15vw;
+	height: 15vw;
 	background-color: gray;
 	border-radius: 50%;
-	margin-left: 100px;
-	margin-top: 20px;
-	@media screen and (max-width: 1050px) {
+	/* margin-left: 100px; */
+	/* margin-top: 20px; */
+	/* @media screen and (max-width: 1050px) {
 		background-size: 150px 150px;
 		width: 200px;
 		height: 200px;
@@ -210,40 +224,18 @@ const StyledImgMe2 = styled.div`
 		border-radius: 50%;
 		margin-left: 30px;
 		margin-top: 0px;
-	}
+	} */
 `;
 
 const StyledMsgBox = styled.div`
 	display: flex;
 	flex-direction: column;
-	margin-top: 50px;
-	margin-right: 30px;
-	@media screen and (max-width: 1024px) {
-		margin-top: 20px;
-		margin-left: 20px;
-	}
 `;
 
-const StyledMsg = styled.div`
-	font-size: 55px;
-	margin-bottom: 30px;
+const StyledMsg = styled.p`
+	font-size: 3vw;
+	margin-bottom: 0.001vw;
 	font-weight: bold;
-	@media screen and (max-width: 1500px) {
-		font-size: 45px;
-	}
-	@media (max-width: 1260px) {
-		font-size: 35px;
-	}
-	@media (max-width: 1024px) {
-		font-size: 30px;
-	}
-	@media (max-width: 860px) {
-		font-size: 20px;
-	}
-	@media (max-width: 500px) {
-		font-size: 15px;
-		margin-bottom: 15px;
-	}
 `;
 
 const StyledMain3 = styled.div`
@@ -257,12 +249,13 @@ const StyledMain3 = styled.div`
 	color: white;
 `;
 
-const StyledSubTitle = styled.div`
+const StyledSubTitle = styled.h2`
+	/* font-size: 3vw; */
 	font-size: 50px;
 	font-weight: bold;
-	margin-bottom: 100px;
-	@media screen and (max-width: 1220px) {
-		font-size: 40px;
+	margin-bottom: 5vw;
+	@media screen and (max-width: 1240px) {
+		font-size: 35px;
 	}
 `;
 
@@ -273,6 +266,7 @@ const StyledSkillBox = styled.div`
 	align-items: center;
 `;
 
+// flex-wrap 사용으로 px 수정안함
 const StyledSkill = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -283,13 +277,13 @@ const StyledSkill = styled.div`
 		width: 200px;
 		height: 200px;
 	}
-	@media screen and (max-width: 1460px) {
+	@media screen and (max-width: 1024px) {
 		img {
 			width: 150px;
 			height: 150px;
 		}
 	}
-	@media (max-width: 1220px) {
+	@media (max-width: 768px) {
 		img {
 			width: 100px;
 			height: 100px;
@@ -303,7 +297,7 @@ const StyledSkill = styled.div`
 	}
 `;
 
-const StyledSkillName = styled.div`
+const StyledSkillName = styled.p`
 	margin-top: 20px;
 	font-weight: bold;
 	font-size: 20px;
@@ -321,21 +315,45 @@ const StyledMain4 = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding-top: 150px;
+	padding-top: 8vw;
+	@media (max-width: 1100px) {
+		& > div:nth-child(3) {
+			flex-direction: column-reverse;
+		}
+	}
 `;
 
 const StyledProjectBox = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 70px;
+	padding: 4vw;
+	a {
+		position: relative;
+		&:after {
+			content: "바로가기";
+			font-weight: bold;
+			transition: all 0.5s;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 97%;
+			background: rgba(0, 0, 0, 0.5);
+			position: absolute;
+			top: 0;
+			left: 0;
+			color: #fff;
+			opacity: 0;
+		}
+		&:hover:after {
+			opacity: 1;
+		}
+	}
 	img {
 		border: 4px solid black;
 		width: 600px;
 		height: 350px;
-		&:hover {
-			transform: scale(1.4);
-		}
 		@media screen and (max-width: 1470px) {
 			border: 4px solid black;
 			width: 400px;
@@ -361,11 +379,11 @@ const StyledPrjText = styled.div`
 	width: 600px;
 `;
 
-const StyledPrjTitle = styled.div`
+const StyledPrjTitle = styled.h3`
 	font-size: 30px;
 	font-weight: bold;
-	padding: 12px;
-	@media screen and (max-width: 750px) {
+	margin: 0;
+	@media screen and (max-width: 768px) {
 		font-size: 25px;
 	}
 	@media (max-width: 540px) {
@@ -373,7 +391,7 @@ const StyledPrjTitle = styled.div`
 	}
 `;
 
-const StyledPrjIntro = styled.div`
+const StyledPrjIntro = styled.p`
 	font-size: 17px;
 	@media screen and (max-width: 750px) {
 		font-size: 13px;
@@ -383,13 +401,12 @@ const StyledPrjIntro = styled.div`
 	}
 `;
 
-const StyledPrjSkill = styled.div`
+const StyledPrjSkill = styled.span`
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-size: 15px;
 	width: 100%;
-	padding-top: 10px;
 	div {
 		margin: 5px;
 		padding: 5px;
@@ -448,7 +465,9 @@ function App() {
 		<Container className="container">
 			<Header isScrolled={isScrolled}>
 				<StyledHdTitle>
-					<StyledTitle>Portfolio</StyledTitle>
+					<StyledTitle>
+						<a href="#main1">Portfolio</a>
+					</StyledTitle>
 				</StyledHdTitle>
 				<StyledHdMenu>
 					<StyledMenuUl>
@@ -464,7 +483,7 @@ function App() {
 					</StyledMenuUl>
 				</StyledHdMenu>
 			</Header>
-			<StyledMain1>
+			<StyledMain1 id="main1">
 				<StyledImgBox>
 					<StyledImgMe
 						data-aos="flip-left"
@@ -576,9 +595,9 @@ function App() {
 					<StyledPrjText>
 						<StyledPrjTitle>KOREATOURISM</StyledPrjTitle>
 						<StyledPrjIntro>
-							한국의 아름다운 관광지를 손쉽게 찾고,
+							한국의 아름다운 관광지를 손쉽게 찾고, 편리하게 계획할 수 있는
+							웹사이트
 						</StyledPrjIntro>
-						<StyledPrjIntro>편리하게 계획할 수 있는 웹사이트</StyledPrjIntro>
 						<StyledPrjSkill>
 							<div>React</div>
 							<div>Styled-components</div>
@@ -586,15 +605,27 @@ function App() {
 							<div>Netlify</div>
 						</StyledPrjSkill>
 						<StyledPrjIcon>
-							<a href="https://github.com/Yunsu0928/koreatourism">
+							<a
+								href="https://github.com/Yunsu0928/koreatourism"
+								target="_blank"
+								rel="noreferrer"
+							>
 								<BsGithub size="30" />
 							</a>
-							<a href="https://www.figma.com/file/Z8xD5wT5BRVT19VQMfuznA/KoreaTourism?type=design&node-id=0-1&mode=design&t=RvRjLfJtBIjGV6TB-0">
+							<a
+								href="https://www.figma.com/file/Z8xD5wT5BRVT19VQMfuznA/KoreaTourism?type=design&node-id=0-1&mode=design&t=RvRjLfJtBIjGV6TB-0"
+								target="_blank"
+								rel="noreferrer"
+							>
 								<BiLogoFigma size="30" />
 							</a>
 						</StyledPrjIcon>
 					</StyledPrjText>
-					<a href="https://koreatourism.netlify.app/">
+					<a
+						href="https://koreatourism.netlify.app/"
+						target="_blank"
+						rel="noreferrer"
+					>
 						<img src={koreagif} />
 					</a>
 				</StyledProjectBox>
@@ -603,7 +634,11 @@ function App() {
 					data-aos-delay="400"
 					data-aos-duration="1000"
 				>
-					<a href="http://stackoverflow-clone-choryun.s3-website.ap-northeast-2.amazonaws.com/">
+					<a
+						href="http://stackoverflow-clone-choryun.s3-website.ap-northeast-2.amazonaws.com/"
+						target="_blank"
+						rel="noreferrer"
+					>
 						<img src={stackgif} />
 					</a>
 					<StyledPrjText>
@@ -617,10 +652,18 @@ function App() {
 							<div>AWS</div>
 						</StyledPrjSkill>
 						<StyledPrjIcon>
-							<a href="https://github.com/Yunsu0928/seb43_pre_019">
+							<a
+								href="https://github.com/Yunsu0928/seb43_pre_019"
+								target="_blank"
+								rel="noreferrer"
+							>
 								<BsGithub size="30" />
 							</a>
-							<a href="https://www.notion.so/clone-c4ad9255713c46298f7e5b21b9704b91?p=bb09bced37c147f381f016062f94c686&pm=s">
+							<a
+								href="https://www.notion.so/clone-c4ad9255713c46298f7e5b21b9704b91?p=bb09bced37c147f381f016062f94c686&pm=s"
+								target="_blank"
+								rel="noreferrer"
+							>
 								<BiNotepad size="30" />
 							</a>
 						</StyledPrjIcon>
@@ -644,15 +687,27 @@ function App() {
 							<div>Netlify</div>
 						</StyledPrjSkill>
 						<StyledPrjIcon>
-							<a href="https://github.com/Yunsu0928/MytodoList">
+							<a
+								href="https://github.com/Yunsu0928/MytodoList"
+								target="_blank"
+								rel="noreferrer"
+							>
 								<BsGithub size="30" />
 							</a>
-							<a href="https://www.figma.com/file/uwnluzvfWox38xKgd1HQNU/Mytodolist?type=design&mode=design&t=RvRjLfJtBIjGV6TB-0">
+							<a
+								href="https://www.figma.com/file/uwnluzvfWox38xKgd1HQNU/Mytodolist?type=design&mode=design&t=RvRjLfJtBIjGV6TB-0"
+								target="_blank"
+								rel="noreferrer"
+							>
 								<BiLogoFigma size="30" />
 							</a>
 						</StyledPrjIcon>
 					</StyledPrjText>
-					<a href="https://hongyunsutodolist.netlify.app/">
+					<a
+						href="https://hongyunsutodolist.netlify.app/"
+						target="_blank"
+						rel="noreferrer"
+					>
 						<img src={todogif} />
 					</a>
 				</StyledProjectBox>
