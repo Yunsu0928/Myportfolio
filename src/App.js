@@ -488,20 +488,20 @@ function App() {
 					<StyledImgMe
 						data-aos="flip-left"
 						data-aos-delay="100"
-						data-aos-duration="3000"
+						data-aos-duration="2000"
 					></StyledImgMe>
 				</StyledImgBox>
 				<StyledName
 					data-aos="fade-up"
 					data-aos-delay="300"
-					data-aos-duration="2000"
+					data-aos-duration="1000"
 				>
 					HONG YUN SU
 				</StyledName>
 				<StyledIntro
 					data-aos="fade-up"
 					data-aos-delay="500"
-					data-aos-duration="2000"
+					data-aos-duration="1000"
 				>
 					I’m front-end developer
 				</StyledIntro>
@@ -511,22 +511,22 @@ function App() {
 				<StyledMsgBox>
 					<StyledMsg
 						data-aos="fade-up"
-						data-aos-delay="200"
-						data-aos-duration="2000"
+						data-aos-delay="100"
+						data-aos-duration="500"
 					>
 						원활한 커뮤니케이션과
 					</StyledMsg>
 					<StyledMsg
 						data-aos="fade-up"
-						data-aos-delay="400"
-						data-aos-duration="2000"
+						data-aos-delay="200"
+						data-aos-duration="500"
 					>
 						협업능력을 바탕으로
 					</StyledMsg>
 					<StyledMsg
 						data-aos="fade-up"
-						data-aos-delay="600"
-						data-aos-duration="2000"
+						data-aos-delay="300"
+						data-aos-duration="500"
 					>
 						더 나은 솔루션을 찾아내는 것을 추구합니다
 					</StyledMsg>
@@ -537,48 +537,48 @@ function App() {
 				<StyledSkillBox>
 					<StyledSkill
 						data-aos="zoom-in"
-						data-aos-delay="400"
-						data-aos-duration="1000"
+						data-aos-delay="100"
+						data-aos-duration="500"
 					>
 						<img src={html} />
 						<StyledSkillName>HTML</StyledSkillName>
 					</StyledSkill>
 					<StyledSkill
 						data-aos="zoom-in"
-						data-aos-delay="600"
-						data-aos-duration="1000"
+						data-aos-delay="200"
+						data-aos-duration="500"
 					>
 						<img src={css} />
 						<StyledSkillName>CSS</StyledSkillName>
 					</StyledSkill>
 					<StyledSkill
 						data-aos="zoom-in"
-						data-aos-delay="800"
-						data-aos-duration="1000"
+						data-aos-delay="300"
+						data-aos-duration="500"
 					>
 						<img src={js} />
 						<StyledSkillName>JavaScript</StyledSkillName>
 					</StyledSkill>
 					<StyledSkill
 						data-aos="zoom-in"
-						data-aos-delay="1000"
-						data-aos-duration="1000"
+						data-aos-delay="400"
+						data-aos-duration="500"
 					>
 						<img src={react} />
 						<StyledSkillName>React</StyledSkillName>
 					</StyledSkill>
 					<StyledSkill
 						data-aos="zoom-in"
-						data-aos-delay="1200"
-						data-aos-duration="1000"
+						data-aos-delay="500"
+						data-aos-duration="500"
 					>
 						<img src={style} />
 						<StyledSkillName>Styled-components</StyledSkillName>
 					</StyledSkill>
 					<StyledSkill
 						data-aos="zoom-in"
-						data-aos-delay="1400"
-						data-aos-duration="1000"
+						data-aos-delay="600"
+						data-aos-duration="500"
 					>
 						<img src={node} />
 						<StyledSkillName>node.js</StyledSkillName>
@@ -589,8 +589,8 @@ function App() {
 				<StyledSubTitle>PROJECTS</StyledSubTitle>
 				<StyledProjectBox
 					data-aos="zoom-in"
-					data-aos-delay="400"
-					data-aos-duration="1000"
+					data-aos-delay="200"
+					data-aos-duration="500"
 				>
 					<StyledPrjText>
 						<StyledPrjTitle>KOREATOURISM</StyledPrjTitle>
@@ -631,8 +631,8 @@ function App() {
 				</StyledProjectBox>
 				<StyledProjectBox
 					data-aos="zoom-in"
-					data-aos-delay="400"
-					data-aos-duration="1000"
+					data-aos-delay="200"
+					data-aos-duration="500"
 				>
 					<a
 						href="http://stackoverflow-clone-choryun.s3-website.ap-northeast-2.amazonaws.com/"
@@ -671,8 +671,8 @@ function App() {
 				</StyledProjectBox>
 				<StyledProjectBox
 					data-aos="zoom-in"
-					data-aos-delay="400"
-					data-aos-duration="1000"
+					data-aos-delay="200"
+					data-aos-duration="500"
 				>
 					<StyledPrjText>
 						<StyledPrjTitle>TODO LIST</StyledPrjTitle>
