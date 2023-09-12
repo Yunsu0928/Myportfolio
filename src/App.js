@@ -329,6 +329,21 @@ const StyledProjectBox = styled.div`
 		&:hover {
 			transform: scale(1.4);
 		}
+		@media screen and (max-width: 1470px) {
+			border: 4px solid black;
+			width: 400px;
+			height: 250px;
+		}
+		@media (max-width: 1170px) {
+			border: 4px solid black;
+			width: 300px;
+			height: 200px;
+		}
+	}
+
+	@media screen and (max-width: 1030px) {
+		display: flex;
+		flex-wrap: wrap;
 	}
 `;
 
@@ -343,10 +358,22 @@ const StyledPrjTitle = styled.div`
 	font-size: 30px;
 	font-weight: bold;
 	padding: 12px;
+	@media screen and (max-width: 750px) {
+		font-size: 25px;
+	}
+	@media (max-width: 540px) {
+		font-size: 20px;
+	}
 `;
 
 const StyledPrjIntro = styled.div`
 	font-size: 17px;
+	@media screen and (max-width: 750px) {
+		font-size: 13px;
+	}
+	@media (max-width: 540px) {
+		font-size: 10px;
+	}
 `;
 
 const StyledPrjSkill = styled.div`
@@ -361,6 +388,12 @@ const StyledPrjSkill = styled.div`
 		padding: 5px;
 		background-color: white;
 		border-radius: 10px;
+	}
+	@media screen and (max-width: 750px) {
+		font-size: 13px;
+	}
+	@media (max-width: 540px) {
+		font-size: 10px;
 	}
 `;
 
