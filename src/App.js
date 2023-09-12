@@ -1,9 +1,11 @@
 import styled from "styled-components";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import AOS from "aos";
-import gsap from "gsap";
-import { Flip } from "gsap/Flip";
-import { Draggable } from "gsap/Draggable";
+// import gsap from "gsap";
+// import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+import { BsGithub } from "react-icons/bs";
+import { BiLogoFigma, BiNotepad } from "react-icons/bi";
 
 import mainimg from "./assets/main.png";
 import me4 from "./assets/me4.png";
@@ -14,9 +16,18 @@ import js from "./assets/icon-js.png";
 import react from "./assets/icon-react.png";
 import style from "./assets/icon-styled-components.png";
 import node from "./assets/icon-nodejs.png";
+import koreatourism from "./assets/koreatourism.png";
+import koreagif from "./assets/gif/koreatourism.gif";
+import stackover from "./assets/stackoverflow.png";
+import stackgif from "./assets/gif/stackoverflow.gif";
+import todo from "./assets/todolist.png";
+import todogif from "./assets/gif/todolist.gif";
 
-const Portfolio = styled.div`
+const Container = styled.div`
 	font-family: "GmarketSansMedium";
+	/* max-height: 100vh;
+	overflow-y: scroll;
+	scroll-snap-type: y mandatory; */
 `;
 
 const Header = styled.header`
@@ -39,7 +50,7 @@ const StyledTitle = styled.div`
 	@media screen and (max-width: 1024px) {
 		font-size: 30px;
 	}
-	@media screen and (max-width: 680px) {
+	@media (max-width: 680px) {
 		font-size: 25px;
 		padding: 10px 20px;
 	}
@@ -62,15 +73,16 @@ const StyledMenuLi = styled.li`
 		font-size: 20px;
 		margin-right: 20px;
 	}
-	@media screen and (max-width: 680px) {
+	@media (max-width: 680px) {
 		font-size: 15px;
 	}
-	@media screen and (max-width: 575px) {
+	@media (max-width: 575px) {
 		font-size: 10px;
 	}
 `;
 
 const StyledMain1 = styled.div`
+	/* scroll-snap-align: start; */
 	width: 100vw;
 	height: 100vh;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
@@ -127,8 +139,13 @@ const StyledName = styled.div`
 		margin-top: 10px;
 		margin-bottom: 10px;
 	}
-	@media screen and (max-width: 390px) {
+	@media (max-width: 390px) {
 		font-size: 30px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	@media (max-width: 255px) {
+		font-size: 25px;
 		margin-top: 10px;
 		margin-bottom: 10px;
 	}
@@ -141,12 +158,16 @@ const StyledIntro = styled.div`
 	@media screen and (max-width: 1024px) {
 		font-size: 30px;
 	}
-	@media screen and (max-width: 390px) {
+	@media (max-width: 390px) {
 		font-size: 20px;
+	}
+	@media (max-width: 255px) {
+		font-size: 15px;
 	}
 `;
 
 const StyledMain2 = styled.div`
+	/* scroll-snap-align: start; */
 	width: 100vw;
 	height: 100vh;
 	background-color: #efefef;
@@ -226,6 +247,7 @@ const StyledMsg = styled.div`
 `;
 
 const StyledMain3 = styled.div`
+	/* scroll-snap-align: start; */
 	width: 100vw;
 	height: 100vh;
 	display: flex;
@@ -236,7 +258,7 @@ const StyledMain3 = styled.div`
 	color: white;
 `;
 
-const StyledSkillTitle = styled.div`
+const StyledSubTitle = styled.div`
 	font-size: 50px;
 	font-weight: bold;
 	margin-bottom: 100px;
@@ -285,55 +307,89 @@ const StyledSkillName = styled.div`
 	}
 `;
 
-const StyledMain4 = styled.div``;
-
-const StyledProjectBox = styled.div``;
-
-const StyledPrjText = styled.div``;
-
-const StyledPrjImg = styled.div``;
-
-const Thumbnail = styled.img`
-	visibility: visible;
-	.active {
-		visibility: hidden;
-	}
-	.flipping {
-		visibility: visible;
-	}
+const StyledMain4 = styled.div`
+	/* scroll-snap-align: start; */
+	width: 100vw;
+	background-color: #efefef;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 150px;
 `;
 
-const Container = styled.div`
-	border: 1px solid rgba(255, 255, 255, 0.3);
-	position: fixed;
-	top: 15px;
-	left: 15px;
-	right: 15px;
-	bottom: 15px;
+const StyledProjectBox = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	align-content: center;
-	pointer-events: none;
+	padding: 70px;
+	img {
+		border: 4px solid black;
+		width: 600px;
+		height: 350px;
+		&:hover {
+			transform: scale(1.4);
+		}
+	}
 `;
 
-const Fullsize = styled.img`
-	flex-shrink: 0;
-	flex-grow: 0;
-	height: 100%;
-	display: none;
-	.active {
-		display: block;
+const StyledPrjText = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 600px;
+`;
+
+const StyledPrjTitle = styled.div`
+	font-size: 30px;
+	font-weight: bold;
+	padding: 12px;
+`;
+
+const StyledPrjIntro = styled.div`
+	font-size: 17px;
+`;
+
+const StyledPrjSkill = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 15px;
+	width: 100%;
+	padding-top: 10px;
+	div {
+		margin: 5px;
+		padding: 5px;
+		background-color: white;
+		border-radius: 10px;
+	}
+`;
+
+const StyledPrjIcon = styled.div`
+	display: flex;
+	padding: 10px;
+	a {
+		color: black;
+	}
+	svg {
+		margin-right: 10px;
 	}
 `;
 
 function App() {
 	const [isScrolled, setIsScrolled] = useState(false);
+	const [isZoomed, setIsZoomed] = useState(false);
+
+	const handleImageClick = () => {
+		setIsZoomed(!isZoomed);
+	};
 
 	useEffect(() => {
 		const handleScroll = () => {
 			const scrollY = window.scrollY;
+
 			if (scrollY > 930 && scrollY < 1860) {
+				setIsScrolled(true);
+			} else if (scrollY > 2790) {
 				setIsScrolled(true);
 			} else {
 				setIsScrolled(false);
@@ -348,32 +404,41 @@ function App() {
 
 	AOS.init();
 
-	// main4
-	gsap.registerPlugin(Flip, Draggable);
+	// // 스크롤
+	// gsap.registerPlugin(ScrollTrigger);
 
-	const fullSize = document.querySelector(".full-size"),
-		thumbnail = document.querySelector(".thumbnail");
+	// useEffect(() => {
+	// 	ScrollTrigger.defaults({
+	// 		toggleActions: "restart pause resume pause",
+	// 		scroller: ".container",
+	// 	});
 
-	Draggable.create(thumbnail);
-	console.log();
+	// 	gsap.to(".main2 p", {
+	// 		scrollTrigger: ".main2",
+	// 		duration: 2,
+	// 		rotation: 360,
+	// 	});
 
-	document.addEventListener("click", () => {
-		const state = Flip.getState(".thumbnail, .full-size");
+	// 	gsap.to(".main3", {
+	// 		scrollTrigger: {
+	// 			trigger: ".main3",
+	// 			toggleActions: "restart pause reverse pause",
+	// 		},
+	// 		duration: 1,
+	// 		ease: "none",
+	// 	});
 
-		fullSize.classList.toggle("active");
-		thumbnail.classList.toggle("active");
-
-		Flip.from(state, {
-			duration: 0.6,
-			fade: true,
-			absolute: true,
-			toggleClass: "flipping",
-			ease: "power1.inOut",
-		});
-	});
+	// 	gsap.to(".main4 p", {
+	// 		scrollTrigger: ".main4",
+	// 		scale: 2,
+	// 		repeat: -1,
+	// 		yoyo: true,
+	// 		ease: "power2",
+	// 	});
+	// });
 
 	return (
-		<Portfolio>
+		<Container className="container">
 			<Header isScrolled={isScrolled}>
 				<StyledHdTitle>
 					<StyledTitle>Portfolio</StyledTitle>
@@ -437,7 +502,7 @@ function App() {
 				</StyledMsgBox>
 			</StyledMain2>
 			<StyledMain3>
-				<StyledSkillTitle>Skills</StyledSkillTitle>
+				<StyledSubTitle>SKILLS</StyledSubTitle>
 				<StyledSkillBox>
 					<StyledSkill
 						data-aos="zoom-in"
@@ -490,29 +555,97 @@ function App() {
 				</StyledSkillBox>
 			</StyledMain3>
 			<StyledMain4>
-				<StyledProjectBox>
+				<StyledSubTitle>PROJECTS</StyledSubTitle>
+				<StyledProjectBox
+					data-aos="zoom-in"
+					data-aos-delay="400"
+					data-aos-duration="1000"
+				>
 					<StyledPrjText>
-						<div>프로젝트 이름</div>
-						<div>프로젝트 설명</div>
+						<StyledPrjTitle>KOREATOURISM</StyledPrjTitle>
+						<StyledPrjIntro>
+							한국의 아름다운 관광지를 손쉽게 찾고,
+						</StyledPrjIntro>
+						<StyledPrjIntro>편리하게 계획할 수 있는 웹사이트</StyledPrjIntro>
+						<StyledPrjSkill>
+							<div>React</div>
+							<div>Styled-components</div>
+							<div>AJAX</div>
+							<div>Netlify</div>
+						</StyledPrjSkill>
+						<StyledPrjIcon>
+							<a href="https://github.com/Yunsu0928/koreatourism">
+								<BsGithub size="30" />
+							</a>
+							<a href="https://www.figma.com/file/Z8xD5wT5BRVT19VQMfuznA/KoreaTourism?type=design&node-id=0-1&mode=design&t=RvRjLfJtBIjGV6TB-0">
+								<BiLogoFigma size="30" />
+							</a>
+						</StyledPrjIcon>
 					</StyledPrjText>
-					<StyledPrjImg>
-						<Thumbnail
-							className="thumbnail"
-							data-flip-id="img"
-							src="https://placehold.co/200x200"
-						/>
-
-						<Container className="container">
-							<Fullsize
-								className="full-size"
-								data-flip-id="img"
-								src="https://placehold.co/600x600"
-							/>
-						</Container>
-					</StyledPrjImg>
+					<a href="https://koreatourism.netlify.app/">
+						<img src={koreagif} />
+					</a>
+				</StyledProjectBox>
+				<StyledProjectBox
+					data-aos="zoom-in"
+					data-aos-delay="400"
+					data-aos-duration="1000"
+				>
+					<a href="http://stackoverflow-clone-choryun.s3-website.ap-northeast-2.amazonaws.com/">
+						<img src={stackgif} />
+					</a>
+					<StyledPrjText>
+						<StyledPrjTitle>STACKOVERFLOW</StyledPrjTitle>
+						<StyledPrjIntro>
+							스택오버플로우 페이지의 서비스 기능과 디자인을 재현하는 프로젝트
+						</StyledPrjIntro>
+						<StyledPrjSkill>
+							<div>React</div>
+							<div>Styled-components</div>
+							<div>AWS</div>
+						</StyledPrjSkill>
+						<StyledPrjIcon>
+							<a href="https://github.com/Yunsu0928/seb43_pre_019">
+								<BsGithub size="30" />
+							</a>
+							<a href="https://www.notion.so/clone-c4ad9255713c46298f7e5b21b9704b91?p=bb09bced37c147f381f016062f94c686&pm=s">
+								<BiNotepad size="30" />
+							</a>
+						</StyledPrjIcon>
+					</StyledPrjText>
+				</StyledProjectBox>
+				<StyledProjectBox
+					data-aos="zoom-in"
+					data-aos-delay="400"
+					data-aos-duration="1000"
+				>
+					<StyledPrjText>
+						<StyledPrjTitle>TODO LIST</StyledPrjTitle>
+						<StyledPrjIntro>
+							사용자의 할일 목록을 관리하는 웹 애플리케이션 프로젝트
+						</StyledPrjIntro>
+						<StyledPrjSkill>
+							<div>React</div>
+							<div>CSS</div>
+							<div>JsonServer</div>
+							<div>AJAX</div>
+							<div>Netlify</div>
+						</StyledPrjSkill>
+						<StyledPrjIcon>
+							<a href="https://github.com/Yunsu0928/MytodoList">
+								<BsGithub size="30" />
+							</a>
+							<a href="https://www.figma.com/file/uwnluzvfWox38xKgd1HQNU/Mytodolist?type=design&mode=design&t=RvRjLfJtBIjGV6TB-0">
+								<BiLogoFigma size="30" />
+							</a>
+						</StyledPrjIcon>
+					</StyledPrjText>
+					<a href="https://hongyunsutodolist.netlify.app/">
+						<img src={todogif} />
+					</a>
 				</StyledProjectBox>
 			</StyledMain4>
-		</Portfolio>
+		</Container>
 	);
 }
 
