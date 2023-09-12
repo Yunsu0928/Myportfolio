@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { useState, useEffect, useRef } from "react";
 import AOS from "aos";
-// import gsap from "gsap";
-// import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import { BsGithub } from "react-icons/bs";
 import { BiLogoFigma, BiNotepad } from "react-icons/bi";
@@ -25,9 +23,8 @@ import todogif from "./assets/gif/todolist.gif";
 
 const Container = styled.div`
 	font-family: "GmarketSansMedium";
-	/* max-height: 100vh;
-	overflow-y: scroll;
-	scroll-snap-type: y mandatory; */
+	overflow: hidden;
+	max-width: 100vw;
 `;
 
 const Header = styled.header`
@@ -69,6 +66,12 @@ const StyledMenuLi = styled.li`
 	float: left;
 	margin-right: 40px;
 	font-size: 30px;
+	a {
+		text-decoration: none;
+		&:visited {
+			color: inherit;
+		}
+	}
 	@media screen and (max-width: 1024px) {
 		font-size: 20px;
 		margin-right: 20px;
@@ -82,7 +85,6 @@ const StyledMenuLi = styled.li`
 `;
 
 const StyledMain1 = styled.div`
-	/* scroll-snap-align: start; */
 	width: 100vw;
 	height: 100vh;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
@@ -107,7 +109,6 @@ const StyledImgMe = styled.div`
 	background-image: url(${me3});
 	background-repeat: no-repeat;
 	background-position: center center;
-	/* background-size: 400px 400px; */
 	margin-top: 100px;
 	width: 400px;
 	height: 400px;
@@ -167,7 +168,6 @@ const StyledIntro = styled.div`
 `;
 
 const StyledMain2 = styled.div`
-	/* scroll-snap-align: start; */
 	width: 100vw;
 	height: 100vh;
 	background-color: #efefef;
@@ -247,7 +247,6 @@ const StyledMsg = styled.div`
 `;
 
 const StyledMain3 = styled.div`
-	/* scroll-snap-align: start; */
 	width: 100vw;
 	height: 100vh;
 	display: flex;
@@ -296,6 +295,12 @@ const StyledSkill = styled.div`
 			height: 100px;
 		}
 	}
+	@media (max-width: 550px) {
+		img {
+			width: 70px;
+			height: 70px;
+		}
+	}
 `;
 
 const StyledSkillName = styled.div`
@@ -303,12 +308,14 @@ const StyledSkillName = styled.div`
 	font-weight: bold;
 	font-size: 20px;
 	@media screen and (max-width: 1220px) {
-		font-size: 15px;
+		font-size: 10px;
+	}
+	@media (max-width: 370px) {
+		font-size: 5px;
 	}
 `;
 
 const StyledMain4 = styled.div`
-	/* scroll-snap-align: start; */
 	width: 100vw;
 	background-color: #efefef;
 	display: flex;
@@ -437,39 +444,6 @@ function App() {
 
 	AOS.init();
 
-	// // 스크롤
-	// gsap.registerPlugin(ScrollTrigger);
-
-	// useEffect(() => {
-	// 	ScrollTrigger.defaults({
-	// 		toggleActions: "restart pause resume pause",
-	// 		scroller: ".container",
-	// 	});
-
-	// 	gsap.to(".main2 p", {
-	// 		scrollTrigger: ".main2",
-	// 		duration: 2,
-	// 		rotation: 360,
-	// 	});
-
-	// 	gsap.to(".main3", {
-	// 		scrollTrigger: {
-	// 			trigger: ".main3",
-	// 			toggleActions: "restart pause reverse pause",
-	// 		},
-	// 		duration: 1,
-	// 		ease: "none",
-	// 	});
-
-	// 	gsap.to(".main4 p", {
-	// 		scrollTrigger: ".main4",
-	// 		scale: 2,
-	// 		repeat: -1,
-	// 		yoyo: true,
-	// 		ease: "power2",
-	// 	});
-	// });
-
 	return (
 		<Container className="container">
 			<Header isScrolled={isScrolled}>
@@ -478,10 +452,15 @@ function App() {
 				</StyledHdTitle>
 				<StyledHdMenu>
 					<StyledMenuUl>
-						<StyledMenuLi>Introduce</StyledMenuLi>
-						<StyledMenuLi>Skills</StyledMenuLi>
-						<StyledMenuLi>Projects</StyledMenuLi>
-						<StyledMenuLi>Contact</StyledMenuLi>
+						<StyledMenuLi>
+							<a href="#main2">Introduce</a>
+						</StyledMenuLi>
+						<StyledMenuLi>
+							<a href="#main3">Skills</a>
+						</StyledMenuLi>
+						<StyledMenuLi>
+							<a href="#main4">Projects</a>
+						</StyledMenuLi>
 					</StyledMenuUl>
 				</StyledHdMenu>
 			</Header>
@@ -508,7 +487,7 @@ function App() {
 					I’m front-end developer
 				</StyledIntro>
 			</StyledMain1>
-			<StyledMain2>
+			<StyledMain2 id="main2">
 				<StyledImgMe2></StyledImgMe2>
 				<StyledMsgBox>
 					<StyledMsg
@@ -534,7 +513,7 @@ function App() {
 					</StyledMsg>
 				</StyledMsgBox>
 			</StyledMain2>
-			<StyledMain3>
+			<StyledMain3 id="main3">
 				<StyledSubTitle>SKILLS</StyledSubTitle>
 				<StyledSkillBox>
 					<StyledSkill
@@ -587,7 +566,7 @@ function App() {
 					</StyledSkill>
 				</StyledSkillBox>
 			</StyledMain3>
-			<StyledMain4>
+			<StyledMain4 id="main4">
 				<StyledSubTitle>PROJECTS</StyledSubTitle>
 				<StyledProjectBox
 					data-aos="zoom-in"
