@@ -14,12 +14,10 @@ import js from "./assets/icon-js.png";
 import react from "./assets/icon-react.png";
 import style from "./assets/icon-styled-components.png";
 import node from "./assets/icon-nodejs.png";
-import koreatourism from "./assets/koreatourism.png";
 import koreagif from "./assets/gif/koreatourism.gif";
-import stackover from "./assets/stackoverflow.png";
 import stackgif from "./assets/gif/stackoverflow.gif";
-import todo from "./assets/todolist.png";
 import todogif from "./assets/gif/todolist.gif";
+import schoolgif from "./assets/gif/school_meal.gif";
 
 const Container = styled.div`
 	font-family: "GmarketSansMedium";
@@ -317,7 +315,7 @@ const StyledMain4 = styled.div`
 	align-items: center;
 	padding-top: 8vw;
 	@media (max-width: 1100px) {
-		& > div:nth-child(3) {
+		& > div:nth-child(2n) {
 			flex-direction: column-reverse;
 		}
 	}
@@ -587,6 +585,47 @@ function App() {
 			</StyledMain3>
 			<StyledMain4 id="main4">
 				<StyledSubTitle>PROJECTS</StyledSubTitle>
+				<StyledProjectBox
+					data-aos="zoom-in"
+					data-aos-delay="200"
+					data-aos-duration="500"
+				>
+					<a
+						href="http://schoolmealinfo.s3-website.ap-northeast-2.amazonaws.com/"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<img src={schoolgif} />
+					</a>
+					<StyledPrjText>
+						<StyledPrjTitle>SCHOOL MEAL INFORMATION</StyledPrjTitle>
+						<StyledPrjIntro>
+							국내 학교별 급식 정보를 한 눈에 볼 수 있는 프로젝트
+						</StyledPrjIntro>
+						<StyledPrjSkill>
+							<div>React</div>
+							<div>CSS</div>
+							<div>AJAX</div>
+							<div>AWS</div>
+						</StyledPrjSkill>
+						<StyledPrjIcon>
+							<a
+								href="https://github.com/Yunsu0928/school_meal_info"
+								target="_blank"
+								rel="noreferrer"
+							>
+								<BsGithub size="30" />
+							</a>
+							<a
+								href="https://www.figma.com/file/eY05fu4yulFyhKDcsuPN4j/school_meal?type=design&mode=design&t=u5q9UGutfudrk88K-0"
+								target="_blank"
+								rel="noreferrer"
+							>
+								<BiLogoFigma size="30" />
+							</a>
+						</StyledPrjIcon>
+					</StyledPrjText>
+				</StyledProjectBox>
 				<StyledProjectBox
 					data-aos="zoom-in"
 					data-aos-delay="200"
