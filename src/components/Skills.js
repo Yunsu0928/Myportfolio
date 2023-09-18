@@ -81,7 +81,7 @@ const StyledSkillName = styled.p`
 	}
 `;
 
-function Main3() {
+function Skills() {
 	return (
 		<StyledMain3 id="main3">
 			<StyledSubTitle>SKILLS</StyledSubTitle>
@@ -139,4 +139,4 @@ function Main3() {
 	);
 }
 
-export default Main3;
+export default Skills;

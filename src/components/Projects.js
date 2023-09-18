@@ -154,7 +154,7 @@ const StyledPrjIcon = styled.div`
 	}
 `;
 
-function Main4() {
+function Projects() {
 	return (
 		<StyledMain4 id="main4" className="observed">
 			<StyledSubTitle>PROJECTS</StyledSubTitle>
@@ -331,4 +331,4 @@ function Main4() {
 	);
 }
 
-export default Main4;
+export default Projects;
