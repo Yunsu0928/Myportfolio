@@ -40,7 +40,7 @@ const StyledMsg = styled.p`
 	font-weight: bold;
 `;
 
-function Main2() {
+function Introduce() {
 	return (
 		<StyledMain2 id="main2" className="observed">
 			<StyledImgMe2></StyledImgMe2>
@@ -71,4 +71,4 @@ function Main2() {
 	);
 }
 
-export default Main2;
+export default Introduce;
