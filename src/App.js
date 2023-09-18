@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import AOS from "aos";
 
 import Header from "./components/Header";
@@ -39,7 +39,7 @@ function App() {
 
 	return (
 		<Container className="container">
-			<Header isScrolled={isScrolled} 
+			<Header isScrolled={isScrolled} />
 			<Main />
 			<Introduce />
 			<Skills />
