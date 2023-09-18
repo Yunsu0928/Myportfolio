@@ -3,10 +3,11 @@ import { useState, useEffect, useRef } from "react";
 import AOS from "aos";
 
 import Header from "./components/Header";
-import Main1 from "./components/Main1";
-import Main2 from "./components/Main2";
-import Main3 from "./components/Main3";
-import Main4 from "./components/Main4";
+
+import Main from "./components/Main";
+import Introduce from "./components/Introduce";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
 
 const Container = styled.div`
 	font-family: "GmarketSansMedium";
@@ -38,11 +39,11 @@ function App() {
 
 	return (
 		<Container className="container">
-			<Header isScrolled={isScrolled} />
-			<Main1 />
-			<Main2 />
-			<Main3 />
-			<Main4 />
+			<Header isScrolled={isScrolled} 
+			<Main />
+			<Introduce />
+			<Skills />
+			<Projects />
 		</Container>
 	);
 }
