@@ -68,7 +68,7 @@ const StyledIntro = styled.p`
 	}
 `;
 
-function Main1() {
+function Main() {
 	return (
 		<StyledMain1 id="main1">
 			<StyledImgBox>
@@ -96,4 +96,4 @@ function Main1() {
 	);
 }
 
-export default Main1;
+export default Main;
