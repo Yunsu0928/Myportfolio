@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import AOS from "aos";
 
 import Header from "./components/Header";
+
 import Main from "./components/Main";
 import Introduce from "./components/Introduce";
 import Skills from "./components/Skills";
@@ -38,7 +39,7 @@ function App() {
 
 	return (
 		<Container className="container">
-			<Header isScrolled={isScrolled} />
+			<Header isScrolled={isScrolled} 
 			<Main />
 			<Introduce />
 			<Skills />
