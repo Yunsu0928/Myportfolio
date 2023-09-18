@@ -40,43 +40,6 @@ const StyledProjectBox = styled.div`
 	justify-content: center;
 	align-items: center;
 	padding: 4vw;
-	a {
-		position: relative;
-		&:after {
-			content: "바로가기";
-			font-weight: bold;
-			transition: all 0.5s;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 100%;
-			height: 97%;
-			background: rgba(0, 0, 0, 0.5);
-			position: absolute;
-			top: 0;
-			left: 0;
-			color: #fff;
-			opacity: 0;
-		}
-		&:hover:after {
-			opacity: 1;
-		}
-	}
-	img {
-		border: 4px solid black;
-		width: 600px;
-		height: 350px;
-		@media screen and (max-width: 1470px) {
-			border: 4px solid black;
-			width: 400px;
-			height: 250px;
-		}
-		@media (max-width: 1170px) {
-			border: 4px solid black;
-			width: 300px;
-			height: 200px;
-		}
-	}
 
 	@media screen and (max-width: 1030px) {
 		display: flex;
@@ -113,6 +76,50 @@ const StyledPrjIntro = styled.p`
 	}
 	@media (max-width: 540px) {
 		font-size: 10px;
+	}
+`;
+
+const StyledPrPeriod = styled.p`
+	margin-top: 0px;
+	padding: 0px 5px;
+	background-color: white;
+`;
+
+const StyledPrjImg = styled.a`
+	position: relative;
+	&:after {
+		content: "바로가기";
+		font-weight: bold;
+		transition: all 0.5s;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 97%;
+		background: rgba(0, 0, 0, 0.5);
+		position: absolute;
+		top: 0;
+		left: 0;
+		color: #fff;
+		opacity: 0;
+	}
+	&:hover:after {
+		opacity: 1;
+	}
+	img {
+		border: 4px solid black;
+		width: 600px;
+		height: 350px;
+		@media screen and (max-width: 1470px) {
+			border: 4px solid black;
+			width: 400px;
+			height: 250px;
+		}
+		@media (max-width: 1170px) {
+			border: 4px solid black;
+			width: 300px;
+			height: 200px;
+		}
 	}
 `;
 
@@ -156,18 +163,19 @@ function Main4() {
 				data-aos-delay="200"
 				data-aos-duration="500"
 			>
-				<a
+				<StyledPrjImg
 					href="http://schoolmealinfo.s3-website.ap-northeast-2.amazonaws.com/"
 					target="_blank"
 					rel="noreferrer"
 				>
 					<img src={schoolgif} />
-				</a>
+				</StyledPrjImg>
 				<StyledPrjText>
 					<StyledPrjTitle>SCHOOL MEAL INFORMATION</StyledPrjTitle>
 					<StyledPrjIntro>
 						국내 학교별 급식 정보를 한 눈에 볼 수 있는 프로젝트
 					</StyledPrjIntro>
+					<StyledPrPeriod>2023.09.13 - 2023.09.14</StyledPrPeriod>
 					<StyledPrjSkill>
 						<div>React</div>
 						<div>CSS</div>
@@ -203,6 +211,7 @@ function Main4() {
 						한국의 아름다운 관광지를 손쉽게 찾고, 편리하게 계획할 수 있는
 						웹사이트
 					</StyledPrjIntro>
+					<StyledPrPeriod>2023.08.07 - 2023.09.05</StyledPrPeriod>
 					<StyledPrjSkill>
 						<div>React</div>
 						<div>Styled-components</div>
@@ -226,31 +235,32 @@ function Main4() {
 						</a>
 					</StyledPrjIcon>
 				</StyledPrjText>
-				<a
+				<StyledPrjImg
 					href="https://koreatourism.netlify.app/"
 					target="_blank"
 					rel="noreferrer"
 				>
 					<img src={koreagif} />
-				</a>
+				</StyledPrjImg>
 			</StyledProjectBox>
 			<StyledProjectBox
 				data-aos="zoom-in"
 				data-aos-delay="200"
 				data-aos-duration="500"
 			>
-				<a
+				<StyledPrjImg
 					href="http://stackoverflow-clone-choryun.s3-website.ap-northeast-2.amazonaws.com/"
 					target="_blank"
 					rel="noreferrer"
 				>
 					<img src={stackgif} />
-				</a>
+				</StyledPrjImg>
 				<StyledPrjText>
 					<StyledPrjTitle>STACKOVERFLOW</StyledPrjTitle>
 					<StyledPrjIntro>
 						스택오버플로우 페이지의 서비스 기능과 디자인을 재현하는 프로젝트
 					</StyledPrjIntro>
+					<StyledPrPeriod>2023.04.14 - 2023.04.27</StyledPrPeriod>
 					<StyledPrjSkill>
 						<div>React</div>
 						<div>Styled-components</div>
@@ -284,6 +294,7 @@ function Main4() {
 					<StyledPrjIntro>
 						사용자의 할일 목록을 관리하는 웹 애플리케이션 프로젝트
 					</StyledPrjIntro>
+					<StyledPrPeriod>2023.04.05 - 2023.04.11</StyledPrPeriod>
 					<StyledPrjSkill>
 						<div>React</div>
 						<div>CSS</div>
@@ -308,13 +319,13 @@ function Main4() {
 						</a>
 					</StyledPrjIcon>
 				</StyledPrjText>
-				<a
+				<StyledPrjImg
 					href="https://hongyunsutodolist.netlify.app/"
 					target="_blank"
 					rel="noreferrer"
 				>
 					<img src={todogif} />
-				</a>
+				</StyledPrjImg>
 			</StyledProjectBox>
 		</StyledMain4>
 	);
