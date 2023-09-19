@@ -83,6 +83,13 @@ const StyledPrPeriod = styled.p`
 	margin-top: 0px;
 	padding: 0px 5px;
 	background-color: white;
+	font-size: 15px;
+	@media screen and (max-width: 750px) {
+		font-size: 13px;
+	}
+	@media (max-width: 540px) {
+		font-size: 10px;
+	}
 `;
 
 const StyledPrjImg = styled.a`
